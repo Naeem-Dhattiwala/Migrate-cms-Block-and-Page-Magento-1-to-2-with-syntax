@@ -1,0 +1,10 @@
+<div class="Row--visual">
+	<form action="<?php echo Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_WEB).'admin_export/adminhtml_exportbackend/export'; ?>" method="get" id="form1">
+		<label for="entities">Choose a Entity:</label>
+		<select id="cms_entity" name="cms-entity" size="1">
+		<option value="page">Pages</option>
+		<option value="block">Blocks</option>
+	</select>
+	<button type="submit" class="export-actions" value="export">Export</button>
+	</form>
+</div>

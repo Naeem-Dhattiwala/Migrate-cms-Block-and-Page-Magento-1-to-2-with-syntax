@@ -1,0 +1,73 @@
+<?xml version="1.0"?>
+<config>
+  <modules>
+    <Printq_Export>
+      <version>0.1.0</version>
+    </Printq_Export>
+  </modules>
+  <global>
+    <helpers>
+      <export>
+        <class>Printq_Export_Helper</class>
+      </export>
+    </helpers>
+	<blocks>
+	  <export>
+		<class>Printq_Export_Block</class>
+	  </export>
+	</blocks>
+  </global>
+  <admin>
+	<routers>
+	  <export>
+	    <use>admin</use>
+		<args>
+		  <module>Printq_Export</module>
+		  <frontName>admin_export</frontName>
+		</args>
+	  </export>
+	</routers>
+  </admin>
+  <adminhtml>
+	<menu>
+	  <export module="export">
+		<title>Export</title>
+		<sort_order>100</sort_order>
+		<children>
+		  <exportbackend module="export">
+			<title>Export Content</title>
+			<sort_order>0</sort_order>
+			<action>admin_export/adminhtml_exportbackend</action>
+		  </exportbackend>
+		</children>
+	  </export>
+	</menu>
+	<acl>
+	  <resources>
+		<all>
+		  <title>Allow Everything</title>
+		</all>
+		<admin>
+		  <children>
+			<export translate="title" module="export">
+			  <title>Export</title>
+			  <sort_order>1000</sort_order>
+			  <children>
+		  <exportbackend translate="title">
+			<title>Export Content</title>
+		  </exportbackend>
+			  </children>
+			</export>
+		  </children>
+		</admin>
+	  </resources>
+	</acl>
+	<layout>
+	  <updates>
+		<export>
+		  <file>export.xml</file>
+		</export>
+	  </updates>
+	</layout>
+  </adminhtml>
+</config> 
